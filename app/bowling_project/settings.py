@@ -9,13 +9,6 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
-# SECRET_KEY = 'foo'
-
-# DEBUG = True
-
-# ALLOWED_HOSTS = ['*']
-
-
 INSTALLED_APPS = [
     "scoring_app.apps.ScoringAppConfig",
     "django.contrib.admin",
