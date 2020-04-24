@@ -6,6 +6,7 @@ __pycache__/
 /static
 .DS_Store3
 .vscode
+db.sqlite3
 
 DB_cheatsheet.py
 
