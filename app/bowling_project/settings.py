@@ -9,14 +9,21 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
+# SECRET_KEY = 'foo'
+
+# DEBUG = True
+
+# ALLOWED_HOSTS = ['*']
+
+
 INSTALLED_APPS = [
+    "scoring_app.apps.ScoringAppConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "scoring_app"
 ]
 
 MIDDLEWARE = [
