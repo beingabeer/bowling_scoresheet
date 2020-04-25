@@ -12,12 +12,6 @@
 p {
 
   color:white;
-  float: right;
-  width:500px;
-  height:65px;
-  position:relative;
-  top:200px;
-  right:325px;
   z-index:50;
   font-size:60px;
   text-align:center;
@@ -136,7 +130,7 @@ left:970px;}
 }
 
 
-#lines {
+/* #lines {
   width:800px;
   height:77px;
   background-color:transparent;
@@ -146,7 +140,7 @@ left:970px;}
   border-bottom:5px solid white;
   float:left;
   left:385px;
-}
+} */
 
 #allpins {
   background-color:transparent;
@@ -519,19 +513,13 @@ left:970px;}
 
 div {
     background-color:white;
-
-  border : 1px solid black;
-
-
+    border : 1px solid black;
 }
+
 .bottom {
   height:50px;
   width:20px;
   border-radius: 10px/20px;
-
-
-
-
 }
 
 .top {
@@ -544,8 +532,6 @@ div {
   border-right: 1px solid black;
   border-bottom: 3px solid red;
   border-radius:50px;
-
-
 }
 
 body {
@@ -553,8 +539,4 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
-
-
-
-
 
