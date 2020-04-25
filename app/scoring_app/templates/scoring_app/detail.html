@@ -5,7 +5,8 @@
 <div class="container">
     <h1 style="color: #fffffe;margin-bottom: 0;">Game {{ game.pk }}<span style="color: #fffffe;font-size: 14px;"
             class="text-muted">&nbsp;&nbsp;&nbsp;&nbsp; created on {{ game.date_created|date:'F d, Y' }}</span><a
-            style="margin-top: 50px;" class="btn-small waves-effect bold right" href="{% url 'index' %}">Back to Game
+            style="margin-top: 50px;" class="btn-small waves-effect bold right" href="{% url 'game-list' %}">Back to
+            Game
             List</a></h1>
     <hr>
     <section class="section section-stats">
@@ -14,21 +15,21 @@
             <div class="col s12 m12 l4">
                 <div class="card-panel" style="white-space: nowrap;overflow: hidden;">
                     <h6 class="bold">Player</h6>
-                    <h2 class="bold">{{ game.player_name.player_name }}</h2>
+                    <h4 class="bold">{{ game.player_name.player_name }}</h4>
                 </div>
             </div>
 
             <div class="col s12 m6 l4">
                 <div class="card-panel" style="white-space: nowrap;overflow: hidden;">
                     <h6 class="bold">Cumulative Score</h6>
-                    <h2 class="bold">10</h2>
+                    <h4 class="bold">10</h4>
                 </div>
             </div>
 
             <div class="col s12 m6 l4">
                 <div class="card-panel">
                     <h6 class="bold">Final Score</h6>
-                    <h2 class="bold green-text">300</h2>
+                    <h4 class="bold green-text">300</h4>
                 </div>
             </div>
 
@@ -36,19 +37,22 @@
     </section>
 
     <section class="section section-expenses">
-        <div class="row">
-            <button style="margin-bottom: 5px;background-color: #7f5af0;margin-right: 14px;"
-                class="btn-large waves-effect right modal-trigger" href="#">
+
+
+        <!-- enter the bowling scoresheet html here -->
+        {% include 'scoring_app/scoresheet.html' %}
+
+        <div class="row" style="text-align: center;">
+            <button style="background-color: #7f5af0;" class="btn-large waves-effect modal-trigger" href="#">
                 <i class="material-icons md-30 white-text left">add_circle</i>
                 Roll
             </button>
         </div>
 
-        <!-- enter the bowling scoresheet html here -->
-
     </section>
 
 </div>
+
 
 
 {% endblock content %}
