@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bowling</title>
+    <link rel="stylesheet" href="{% static 'scoring_app/bowling.css' %}">
+</head>
+
+<body>
+
+    <div id="allallthethings" style="padding-bottom: 20%;">
+
+        <input type="radio" name="tabs" id="button"> <label for="button">
+            <p>Welcome to Zebra Bowling</p>
+
+        </label>
+
+        <div id="allthethings">
+            <div id="lines"></div>
+            <div id="allpins">
+
+                <div id="pin1">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin2">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin3">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin4">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin5">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin6">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin7">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin8">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin9">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+                <div id="pin10">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+
+            </div>
+            <div id="lastball">
+                <div id="dot1"></div>
+                <div id="dot2"></div>
+                <div id="dot3"></div>
+                <div id="ball"></div>
+            </div>
+
+        </div>
+
+    </div>
+    <div style="margin-left: 43%; background-color: black;">
+        <a href="{% url 'game-list' %}"><button id="btn">Play!</button></a>
+    </div>
+
+    <style type="text/css">
+        #btn {
+            background-color: yellow;
+            padding-left: .5em;
+            padding-right: .5em;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 6px;
+            color: black;
+            font-family: 'Oswald';
+            font-size: 40px;
+            text-decoration: none;
+            border: none;
+        }
+
+        #btn:hover {
+            border: none;
+            background: gold;
+            box-shadow: 0px 0px 1px #777;
+        }
+    </style>
+</body>
+
+</html>

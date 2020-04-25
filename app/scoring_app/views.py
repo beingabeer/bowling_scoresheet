@@ -4,10 +4,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import CreateView
 
 
-def index(request):
+def bowling(request):
+    return render(request, 'scoring_app/bowling.html')
+
+
+def game_list(request):
     game_list = Game.objects.all()
     context = {'game_list': game_list}
-    return render(request, 'scoring_app/index.html', context)
+    return render(request, 'scoring_app/game-list.html', context)
 
 
 def game_detail(request, pk):
@@ -19,7 +23,7 @@ def game_detail(request, pk):
 def game_delete(request, pk):
     game = Game.objects.get(pk=pk)
     game.delete()
-    return redirect('index')
+    return redirect('game-list')
 
 
 class GameCreateView(CreateView):
