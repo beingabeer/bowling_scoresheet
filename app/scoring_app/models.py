@@ -1,6 +1,6 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-import uuid
+from django.utils import timezone
 from django.db.models.signals import pre_save, post_save
 
 
@@ -17,11 +17,14 @@ class Game(models.Model):
     player_name = models.ForeignKey(
         Player, on_delete=models.CASCADE, related_name='player')
     in_progress = models.BooleanField(default=True)
-    is_over = models.BooleanField(default=False)
     final_score = models.IntegerField(default=0)
+    date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f"Game {self.game_id} - ({self.player_name})"
+
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"pk": self.pk})
 
 
 class Frame(models.Model):
