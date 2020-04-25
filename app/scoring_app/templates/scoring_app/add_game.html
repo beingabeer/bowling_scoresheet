@@ -1,0 +1,21 @@
+{% extends 'scoring_app/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <a href="{% url 'index' %}"><button style="background-color: #7f5af0; margin-top: 20px;"
+            class="btn waves-effect bold">
+            <i class="material-icons md-30 white-text left">keyboard_backspace</i>
+            Back
+        </button></a>
+    <form method="POST">
+        {% csrf_token %}
+        <div style="margin-top: 100px;">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn">Start Game!</button>
+
+    </form>
+</div>
+
+{% endblock %}

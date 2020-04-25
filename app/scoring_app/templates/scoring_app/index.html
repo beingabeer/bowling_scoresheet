@@ -1,0 +1,50 @@
+{% extends 'scoring_app/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+
+    <h2 style="color: #fffffe;">Bowling Games List<a href="{% url 'create' %}"
+            class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a></h2>
+    <hr>
+
+    <div class="row">
+        {% for game in game_list %}
+        <div class="col s12 md6 xl3">
+            <div class="outer">
+                <a href="{% url 'detail' game.pk %}">
+                    <div class="card-panel">
+                        <div class="card-content white-text bold" style="color: #fffffe;font-size: 20px;">
+                            Game {{ game.pk }} - ({{ game.player_name.player_name }})
+
+                        </div>
+                        <hr class="style1">
+                        <div class="inner">
+                            <span><a class="btn-small waves-effect bold left" style="margin-right: 30px;"
+                                    href="{% url 'detail' game.pk %}">{% if game.in_progress %}Play{% else %}View
+                                    Score{% endif %}</a></span>
+                            <span><a href="{% url 'game-delete' game.pk %}"><i
+                                        class="material-icons md-30 white-text">delete</i></a></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="noproject-wrapper center">
+            <h3 style="color: #fffffe;">No games played yet</h3>
+            <a href="{% url 'create' %}" class="btn-large green">
+                <i class="material-icons white-text left">add_circle</i>
+                <span class="bold">Add</span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
+<!-- <a href="{% url 'detail' project.slug %}"></a>
+<div class="card-panel">
+    <h5 style="color: #fffffe; text-align: center;">{{ project.name }}</h5>
+</div>
+</a> -->
