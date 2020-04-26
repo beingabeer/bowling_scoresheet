@@ -40,9 +40,9 @@ class Frame(models.Model):
         validators=[MaxValueValidator(10), MinValueValidator(1)])
     frame_is_active = models.BooleanField(default=False)
     roll_one = models.PositiveIntegerField(
-        default=0, choices=list(zip(range(1, 11), range(1, 11))))
+        default=0, choices=list(zip(range(0, 11), range(0, 11))))
     roll_two = models.IntegerField(
-        default=0, choices=list(zip(range(1, 11), range(1, 11))))
+        default=0, choices=list(zip(range(0, 11), range(0, 11))))
     roll_three = models.PositiveIntegerField(default=0)
     roll_four = models.PositiveIntegerField(default=0)
 
