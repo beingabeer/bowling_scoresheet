@@ -39,22 +39,24 @@ class Frame(models.Model):
     frame_no = models.IntegerField(
         validators=[MaxValueValidator(10), MinValueValidator(1)])
     frame_is_active = models.BooleanField(default=False)
-    # roll_one = models.IntegerField(default=0)
-    # roll_two = models.IntegerField(default=0)
-    # roll_three = models.IntegerField(default=0)
-    # roll_four = models.IntegerField(default=0)
+    roll_one = models.PositiveIntegerField(
+        default=0, choices=list(zip(range(1, 11), range(1, 11))))
+    roll_two = models.IntegerField(
+        default=0, choices=list(zip(range(1, 11), range(1, 11))))
+    roll_three = models.PositiveIntegerField(default=0)
+    roll_four = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"{self.game_id} Frame-{self.frame_no}"
 
 
-class Roll(models.Model):
-    roll_id = models.AutoField(primary_key=True)
-    roll_one = models.IntegerField(default=0)
-    roll_two = models.IntegerField(default=0)
-    roll_three = models.IntegerField(default=0)
-    roll_four = models.IntegerField(default=0)
-    frame_id = models.ForeignKey(Frame, on_delete=models.CASCADE)
+# class Roll(models.Model):
+#     roll_id = models.AutoField(primary_key=True)
+#     roll_one = models.IntegerField(default=0)
+#     roll_two = models.IntegerField(default=0)
+#     roll_three = models.IntegerField(default=0)
+#     roll_four = models.IntegerField(default=0)
+#     frame_id = models.ForeignKey(Frame, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return f"{self.frame_id.game_id} Frame {self.frame_id.frame_no} Roll id {self.roll_id}"
+#     def __str__(self):
+#         return f"{self.frame_id.game_id} Frame {self.frame_id.frame_no} Roll id {self.roll_id}"
