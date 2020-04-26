@@ -124,26 +124,6 @@ hr.style1{
 
 
 
-input[type=text] {
-    color: white;
-}
-
-input[type=number] {
-    color: white;
-}
-
-input[id=amount] {
-    color: white;
-}
-
-input[id=title] {
-    color: white;
-}
-
-label {
-    color: white;
-    font-weight: bold;
-}
 
 .selected {
     color: white;

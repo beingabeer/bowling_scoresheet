@@ -4,7 +4,7 @@
 #allallthethings {
   background-color:transparent;
   width:1000px;
-  background-color: black;
+  background-color: #16161a;
   margin:auto;
 
 }
@@ -82,7 +82,7 @@ left:970px;}
 #dot3 {
   height:5px;
   width:5px;
-  background-color:black;;
+  background-color:#16161a;
   border-radius:50px;
   position:relative;
   left:18px;
@@ -93,7 +93,7 @@ left:970px;}
 #dot2 {
   height:5px;
   width:5px;
-  background-color:black;
+  background-color:#16161a;
   border-radius:50px;
   position:relative;
   top:10px;
@@ -104,7 +104,7 @@ left:970px;}
 #dot1 {
   height:5px;
   width:5px;
-  background-color:black;
+  background-color:#16161a;
   border-radius:50px;
   position:relative;
  left:10px;
@@ -513,7 +513,7 @@ left:970px;}
 
 div {
     background-color:white;
-    border : 1px solid black;
+    border : 1px solid #16161a;
 }
 
 .bottom {
@@ -527,15 +527,15 @@ div {
   height:10px;
   position:relative;
   left:5px;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-top: 1px solid #16161a;
+  border-left: 1px solid #16161a;
+  border-right: 1px solid #16161a;
   border-bottom: 3px solid red;
   border-radius:50px;
 }
 
 body {
-  background-color:black;
+  background-color:#16161a;
   max-width: 100%;
   overflow-x: hidden;
 }
