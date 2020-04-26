@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Player, Game, Frame
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import CreateView
+# from .forms import GameCreationForm
+from django.urls import reverse_lazy
 
 
 def bowling(request):
@@ -32,12 +34,17 @@ class GameCreateView(CreateView):
     fields = ("player_name",)
 
     def form_valid(self, form):
-        return super().form_valid(form)
+        self.object = form.save(commit=False)
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
-        # return HttpResponseRedirect(self.get_success_url())
 
+class PlayerCreateView(CreateView):
+    model = Player
+    template_name = 'scoring_app/add_player.html'
+    fields = ("player_name",)
 
-# def create_game(request):
-#     if request.method == "POST":
-#         player_name = request.POST.get('player_name')
-#         Game.object.create(player_name=player_name)
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return redirect('game-list')

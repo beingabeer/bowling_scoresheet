@@ -4,10 +4,9 @@
 
 <div class="container">
 
-    <h2 style="color: #fffffe;">Bowling Games List<a href="{% url 'create' %}"
+    <h2 style="color: #fffffe;">Bowling Games List<a href="{% url 'create-game' %}"
             class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a></h2>
     <hr>
-
     <div class="row">
         {% for game in game_list %}
         <div class="col s12 md6 xl3">
@@ -19,7 +18,7 @@
 
                         </div>
                         <hr class="style1">
-                        <div class="inner">
+                        <div class="inner" style="margin-top: 30px;">
                             <span><a class="btn-small waves-effect bold left" style="margin-right: 30px;"
                                     href="{% url 'detail' game.pk %}">{% if game.in_progress %}Play{% else %}View
                                     Score{% endif %}</a></span>
@@ -33,7 +32,7 @@
         {% empty %}
         <div class="noproject-wrapper center">
             <h3 style="color: #fffffe;">No games played yet</h3>
-            <a href="{% url 'create' %}" class="btn-large green">
+            <a href="{% url 'create-game' %}" class="btn-large green">
                 <i class="material-icons white-text left">add_circle</i>
                 <span class="bold">Add</span>
             </a>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Game</title>
+    <title>Add Player</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,7 +12,7 @@
 
 <body>
     <div class="box">
-        <h1>Select Player Name</h1>
+        <h1>Register Player Name</h1>
         <form class="form-inline" method="POST">
             {% csrf_token %}
             <!-- <input type="text" placeholder="Enter Player Name" name="player_name"> -->
@@ -56,7 +56,7 @@
             margin: 12px 0;
         }
 
-        select {
+        input[type=text] {
             width: 100%;
             padding: 5px;
             margin-bottom: 10px;
