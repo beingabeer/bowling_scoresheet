@@ -10,6 +10,7 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 
 INSTALLED_APPS = [
+    "crispy_forms",
     "scoring_app.apps.ScoringAppConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -74,5 +75,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATIC_URL = "/static/"
