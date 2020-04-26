@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +20,7 @@
             {{ form.player_name }}
             <button class="btn" type="submit">Submit</button>
         </form>
+        Haven't Registered? <a href="{% url 'create-player' %}">Register Player</a>
     </div>
     <style>
         body {

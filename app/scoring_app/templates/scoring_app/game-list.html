@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <h2 style="color: #fffffe;">Bowling Games List<a href="{% url 'create-game' %}"
+    <h2 style="color: #fffffe;">Bowling Games List<a href="{% url 'create-game' %}" title="Add Game"
             class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">add</i></a></h2>
     <hr>
     <div class="row">
@@ -22,7 +22,7 @@
                             <span><a class="btn-small waves-effect bold left" style="margin-right: 30px;"
                                     href="{% url 'detail' game.pk %}">{% if game.in_progress %}Play{% else %}View
                                     Score{% endif %}</a></span>
-                            <span><a href="{% url 'game-delete' game.pk %}"><i
+                            <span><a href="{% url 'game-delete' game.pk %}" title="Delete Game"><i
                                         class="material-icons md-30 white-text">delete</i></a></span>
                         </div>
                     </div>
