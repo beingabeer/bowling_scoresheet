@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
-from .models import Player, Game, Frame
+from .models import Player, Game, Frame, Roll
 
+admin.site.register(Roll)
 admin.site.register(Player)
 admin.site.register(Game)
 admin.site.register(Frame)
