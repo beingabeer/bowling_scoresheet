@@ -31,7 +31,7 @@ docker-compose exec web python manage.py createsuperuser
 
 ## How does it work?
 
-Simply register a player name, create a game and click on the "Play" button. After which the player is directed to the game detail screen.
+Simply register a player name, create a game and click on the "Play" button. After which the player is directed to the game detail screen. Select values for the rolls and click on the roll button to simulate a throw.
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/game-detail.png)
 
