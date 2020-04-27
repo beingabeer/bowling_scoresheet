@@ -3,6 +3,7 @@ from .models import Player, Game, Frame
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 def bowling(request):
@@ -25,8 +26,7 @@ def game_detail(request, pk):
     if request.method == "POST":
         roll_one = request.POST.get('roll_one')
         roll_two = request.POST.get('roll_two')
-        current_frame = Frame.objects.get(
-            game_id=game, frame_is_active=True)
+        current_frame = Frame.objects.get(game_id=game, frame_is_active=True)
         current_frame.roll_one = roll_one
         current_frame.roll_two = roll_two
         current_frame_num = current_frame.frame_no
@@ -73,5 +73,3 @@ class PlayerCreateView(CreateView):
         self.object = form.save(commit=False)
         self.object.save()
         return redirect('game-list')
-
-
