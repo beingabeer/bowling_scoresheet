@@ -40,9 +40,9 @@
                 <th colspan='6'>Frame 10</th>
             </tr>
             <tr>
-                <td colspan='3'></td>
-                <td id="frame1" colspan='3'></td>
-                <td colspan='3'></td>
+                <td colspan='3'>{{ frame_list.first.roll_one }}</td>
+                <td id="frame1" colspan='3'>{{ frame_list.first.roll_two }}</td>
+                <td colspan='3'>{{ frame_list.second.roll_one }}</td>
                 <td id="frame2" colspan='3'></td>
                 <td colspan='3'></td>
                 <td id="frame3" colspan='3'></td>
@@ -58,8 +58,8 @@
                 <td id="frame8" colspan='3'></td>
                 <td colspan='3'></td>
                 <td id="frame9" colspan='3'></td>
-                <td colspan='3'></td>
-                <td id="frame10" colspan='3'></td>
+                <td colspan='3'>{{ frame_list.last.roll_one }}</td>
+                <td id="frame10" colspan='3'>{{ frame_list.last.roll_two }}</td>
             </tr>
             <tr>
                 <td colspan='6' id="marker0"></td>

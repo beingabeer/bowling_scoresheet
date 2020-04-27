@@ -27,3 +27,6 @@ table.scorecard td {height:30px; background: white;}
 table.scorecard tr td:not(:last-child) {border-right:1px solid;}
 table.scorecard tr:nth-child(2) td:nth-child(even) {border-bottom:1px solid;}
 table.scorecard tr:nth-child(2) td:last-child {border-bottom:1px solid;}
+
+
+
