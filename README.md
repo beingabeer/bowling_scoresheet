@@ -29,6 +29,15 @@ docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 ```
 
+## How does it work?
+
+Simply register a player name, create a game and click on the "Play" button. After which the player is directed to the game detail screen.
+
+![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/game-detail.png)
+
+
+
+
 ## Game Scoring rules summary
 
 Each game, includes ten frames for the bowler.
