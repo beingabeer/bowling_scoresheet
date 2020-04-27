@@ -15,8 +15,7 @@ class Player(models.Model):
 
 class Game(models.Model):
     game_id = models.AutoField(primary_key=True)
-    player_name = models.ForeignKey(
-        Player, on_delete=models.CASCADE)
+    player_name = models.ForeignKey(Player, on_delete=models.CASCADE)
     in_progress = models.BooleanField(default=True)
     final_score = models.IntegerField(default=0)
     date_created = models.DateTimeField(default=timezone.now)
@@ -30,15 +29,11 @@ class Game(models.Model):
 
 class Frame(models.Model):
     frame_id = models.AutoField(primary_key=True)
-    game_id = models.ForeignKey(
-        Game, on_delete=models.CASCADE)
-    frame_no = models.IntegerField(
-        validators=[MaxValueValidator(10), MinValueValidator(1)])
+    game_id = models.ForeignKey(Game, on_delete=models.CASCADE)
+    frame_no = models.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
     frame_is_active = models.BooleanField(default=False)
-    roll_one = models.PositiveIntegerField(
-        default=0, choices=list(zip(range(0, 11), range(0, 11))))
-    roll_two = models.IntegerField(
-        default=0, choices=list(zip(range(0, 11), range(0, 11))))
+    roll_one = models.PositiveIntegerField(default=0, choices=list(zip(range(0, 11), range(0, 11))))
+    roll_two = models.IntegerField(default=0, choices=list(zip(range(0, 11), range(0, 11))))
     roll_three = models.PositiveIntegerField(default=0)
     roll_four = models.PositiveIntegerField(default=0)
 

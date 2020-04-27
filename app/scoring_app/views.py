@@ -20,8 +20,7 @@ def game_detail(request, pk):
     game = Game.objects.get(pk=pk)
     frame_list = game.frame_set.all()
     frame_active_count = frame_list.filter(frame_is_active=True).count()
-    context = {'game': game, 'frame_list': frame_list,
-               'frame_active_count': frame_active_count}
+    context = {'game': game, 'frame_list': frame_list,'frame_active_count': frame_active_count}
 
     if request.method == "POST":
         roll_one = request.POST.get('roll_one')
