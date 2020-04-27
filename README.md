@@ -4,7 +4,7 @@ A 10 pin bowling game built using Python/Django with a Rest API support
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/bowling.png)
 
 
-## Running application with Docker
+## Running application locally with Docker
 
 Clone and add the following to a '.env.dev' file in the root directory:
 
