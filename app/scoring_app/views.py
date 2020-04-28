@@ -32,6 +32,7 @@ def game_detail(request, pk):
             current_frame.save()
             game.in_progress = False
             game.save()
+            messages.success(request, f"Game Over! Thanks for playing!")
 
         else:
             roll_one = int(request.POST.get('roll_one'))
