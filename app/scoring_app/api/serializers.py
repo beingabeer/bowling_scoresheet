@@ -8,15 +8,17 @@ class PlayerListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class GameListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = '__all__'
 
 
 
-
-
-
-
-
-
+class GameDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Game
+        fields = '__all__'
 
 
 
