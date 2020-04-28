@@ -65,6 +65,7 @@ the bonus throws are only used to calculate the score of the final frame.
 - Django
 - Django Rest Framework
 - Javascript
+- Docker
 - Postgres
 - Gunicorn
 - HTML
