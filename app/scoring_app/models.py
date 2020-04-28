@@ -17,14 +17,36 @@ class Game(models.Model):
     game_id = models.AutoField(primary_key=True)
     player_name = models.ForeignKey(Player, on_delete=models.CASCADE)
     in_progress = models.BooleanField(default=True)
-    final_score = models.IntegerField(default=0)
     date_created = models.DateTimeField(default=timezone.now)
+    game_score = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"Game {self.game_id} - ({self.player_name})"
 
     def get_absolute_url(self):
         return reverse("detail", kwargs={"pk": self.pk})
+
+    @property
+    def cumulative_score(self):
+        frame_list = Frame.objects.filter(game_id=self)
+        score = 0
+        for frame in frame_list:
+            score += frame.frame_score
+        return score
+
+    @property
+    def final_score(self):
+        if self.in_progress:
+            return self.cumulative_score
+        else:
+            frame_list = Frame.objects.filter(game_id=self)
+            score = 0
+            for frame in frame_list:
+                score += frame.frame_score
+            self.game_score = score
+            self.save()
+            return score
+
 
 
 class Frame(models.Model):
@@ -39,3 +61,55 @@ class Frame(models.Model):
 
     def __str__(self):
         return f"{self.game_id} Frame-{self.frame_no}"
+
+    @property
+    def input_roles_are_valid(self):
+        if self.roll_one + self.roll_two > 10:
+            return False
+        elif self.roll_one == 10 and self.roll_two > 0:
+            return False
+        else:
+            return True
+
+    @property
+    def is_strike(self):
+        if self.roll_one == 10 and self.roll_two == 0:
+            return True
+        return False
+
+    @property
+    def is_spare(self):
+        if not self.is_strike and self.roll_two + self.roll_one == 10:
+            return True
+        return False
+
+
+    # recheck case logic for frame 9 and frame 10
+    @property
+    def frame_score(self):
+        if self.roll_one + self.roll_two < 10:
+            return self.roll_two + self.roll_one
+
+        # if self.is_strike and self.frame_no < 9:
+        #     current_frame_no = self.frame_no
+        #     next_frame_no = current_frame_no + 1
+        #     next_next_frame_no = next_frame_no + 1
+        #     frame_one_ahead = Frame.objects.get(game_id=self.game_id, frame_no=next_frame_no)
+        #     frame_two_ahead = Frame._get_next_or_previous_by_FIELD()
+
+        if self.is_strike and self.frame_no < 9:
+            frame_one_ahead = Frame.objects.filter(game_id=self.game_id, frame_no__gt=self.frame_no).order_by('frame_no').first()
+            frame_two_ahead = Frame.objects.filter(game_id=self.game_id, frame_no__gt=frame_one_ahead.frame_no).order_by('frame_no').first()
+
+            if frame_one_ahead.is_strike:
+                return 10 + 10 + frame_two_ahead.roll_one
+
+            if not frame_one_ahead.is_strike:
+                return 10 + frame_one_ahead.roll_one + frame_one_ahead.roll_two
+
+        if self.is_spare and self.frame_no < 10:
+            frame_one_ahead = Frame.objects.filter(game_id=self.game_id, frame_no__gt=self.frame_no).order_by('frame_no').first()
+            return 10 + frame_one_ahead.roll_one
+
+
+
