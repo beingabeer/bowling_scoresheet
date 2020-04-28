@@ -39,7 +39,11 @@ Simply register a player name, create a game and click on the "Play" button. Aft
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/game-detail.png)
 
+## API
 
+'''
+WIP
+'''
 
 
 ## Game Scoring rules summary
