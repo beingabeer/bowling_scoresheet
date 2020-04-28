@@ -55,11 +55,12 @@ def game_detail(request, pk):
                     game.save()
                     return render(request, 'scoring_app/detail.html', context)
 
-            elif roll_one + roll_two > 10:
-                # include error message here
-                return render(request, 'scoring_app/detail.html', context)
             elif roll_one == 10 and roll_two > 0:
-                # include error message here
+                messages.warning(request, f"Roll one is a strike! Roll 2 should be zero")
+                return render(request, 'scoring_app/detail.html', context)
+
+            elif roll_one + roll_two > 10:
+                messages.warning(request, f"Cannot knock more than 10 pins in one frame!")
                 return render(request, 'scoring_app/detail.html', context)
 
             else:
