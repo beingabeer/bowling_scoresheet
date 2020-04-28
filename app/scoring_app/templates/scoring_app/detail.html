@@ -22,14 +22,15 @@
             <div class="col s12 m6 l4">
                 <div class="card-panel" style="white-space: nowrap;overflow: hidden;">
                     <h6 class="bold">Cumulative Score</h6>
-                    <h4 class="bold">0</h4>
+                    <h4 class="bold">{{ game.cumulative_score }}</h4>
                 </div>
             </div>
 
             <div class="col s12 m6 l4">
                 <div class="card-panel">
                     <h6 class="bold">Final Score</h6>
-                    <h4 class="bold green-text">0</h4>
+                    <h4 class="bold green-text">
+                        {% if not game.in_progress %}{{ game.final_score }}{% else %}--{% endif %}</h4>
                 </div>
             </div>
 
