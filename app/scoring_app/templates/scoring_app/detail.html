@@ -50,7 +50,29 @@
         <form method="post">
             {% csrf_token %}
             {% for frame in frame_list %}
-            {% if frame.frame_is_active %}
+            {% if frame.frame_is_active and frame.extra_frame_is_active %}
+            <div style="font-size: xx-large;margin-bottom: 30px;text-align: center;color: white;">
+                Extra Turn!
+            </div>
+
+            <div style="text-align: center;">
+                <label style="color: white;font-size: large; margin-right: 10px;">Pins Knocked</label>
+                <input style="max-width: 40%;" type="range" name="roll_three" id="rollInputId3" value="0" min="0"
+                    max="10" oninput="rollOutputId3.value = rollInputId3.value">
+                <output style="font-size: larger;color: white;padding-right: 100px;" name="rollOutputName3"
+                    id="rollOutputId3">0</output>
+            </div>
+
+
+            <div class="row" style="text-align: center;">
+                <button type="submit" style="margin-top: 30px;background-color: #7f5af0;"
+                    class="btn-large waves-effect modal-trigger" href="#">
+                    <i class="material-icons md-30 white-text left">lens</i>
+                    Roll
+                </button>
+            </div>
+
+            {% elif frame.frame_is_active %}
             <div style="font-size: xx-large;margin-bottom: 30px;text-align: center;color: white;">Frame
                 {{ frame.frame_no }}
             </div>

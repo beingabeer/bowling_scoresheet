@@ -54,10 +54,11 @@ class Frame(models.Model):
     game_id = models.ForeignKey(Game, on_delete=models.CASCADE)
     frame_no = models.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)])
     frame_is_active = models.BooleanField(default=False)
+    extra_frame_is_active = models.BooleanField(default=False)
     roll_one = models.PositiveIntegerField(default=0, choices=list(zip(range(0, 11), range(0, 11))))
     roll_two = models.IntegerField(default=0, choices=list(zip(range(0, 11), range(0, 11))))
-    roll_three = models.PositiveIntegerField(default=0)
-    roll_four = models.PositiveIntegerField(default=0)
+    roll_three = models.PositiveIntegerField(default=0, choices=list(zip(range(0, 11), range(0, 11))))
+
 
     def __str__(self):
         return f"{self.game_id} Frame-{self.frame_no}"
@@ -90,13 +91,6 @@ class Frame(models.Model):
         if self.roll_one + self.roll_two < 10:
             return self.roll_two + self.roll_one
 
-        # if self.is_strike and self.frame_no < 9:
-        #     current_frame_no = self.frame_no
-        #     next_frame_no = current_frame_no + 1
-        #     next_next_frame_no = next_frame_no + 1
-        #     frame_one_ahead = Frame.objects.get(game_id=self.game_id, frame_no=next_frame_no)
-        #     frame_two_ahead = Frame._get_next_or_previous_by_FIELD()
-
         if self.is_strike and self.frame_no < 9:
             frame_one_ahead = Frame.objects.filter(game_id=self.game_id, frame_no__gt=self.frame_no).order_by('frame_no').first()
             frame_two_ahead = Frame.objects.filter(game_id=self.game_id, frame_no__gt=frame_one_ahead.frame_no).order_by('frame_no').first()
@@ -110,6 +104,21 @@ class Frame(models.Model):
         if self.is_spare and self.frame_no < 10:
             frame_one_ahead = Frame.objects.filter(game_id=self.game_id, frame_no__gt=self.frame_no).order_by('frame_no').first()
             return 10 + frame_one_ahead.roll_one
+
+        # Special cases
+        if self.frame_no == 9 and self.is_strike:
+            frame_one_ahead = Frame.objects.filter(game_id=self.game_id, frame_no__gt=self.frame_no).order_by('frame_no').first()
+            return 10 + frame_one_ahead.roll_one + frame_one_ahead.roll_two
+
+        if self.frame_no == 10:
+            if self.roll_one == 10:
+                return 10 + self.roll_two + self.roll_three
+
+            elif self.roll_one + self.roll_two == 10:
+                return 10 + self.roll_three
+
+
+
 
 
 
