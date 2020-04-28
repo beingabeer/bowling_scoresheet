@@ -1,7 +1,11 @@
-### 10 Pin Bowling Game  (WIP)
+## 10 Pin Bowling Game  (WIP)
 A 10 pin bowling game built using Python/Django with a Rest API support
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/bowling.png)
+
+## Demo Link
+
+[bowling7.herokuapp.com](https://bowling7.herokuapp.com/)
 
 
 ## Running application locally with Docker
@@ -35,7 +39,11 @@ Simply register a player name, create a game and click on the "Play" button. Aft
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/game-detail.png)
 
+## API
 
+```
+WIP
+```
 
 
 ## Game Scoring rules summary
@@ -61,6 +69,7 @@ the bonus throws are only used to calculate the score of the final frame.
 - Django
 - Django Rest Framework
 - Javascript
+- Docker
 - Postgres
 - Gunicorn
 - HTML
