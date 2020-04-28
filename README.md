@@ -41,9 +41,9 @@ Simply register a player name, create a game and click on the "Play" button. Aft
 
 ## API
 
-'''
+```
 WIP
-'''
+```
 
 
 ## Game Scoring rules summary
