@@ -53,6 +53,7 @@ def game_detail(request, pk):
                     current_frame.save()
                     game.in_progress = False
                     game.save()
+                    messages.success(request, f"Game Over! Thanks for playing!")
                     return render(request, 'scoring_app/detail.html', context)
 
             elif roll_one == 10 and roll_two > 0:
@@ -76,6 +77,7 @@ def game_detail(request, pk):
                 else:
                     game.in_progress = False
                     game.save()
+                    messages.success(request, f"Game Over! Thanks for playing!")
 
             return render(request, 'scoring_app/detail.html', context)
 
