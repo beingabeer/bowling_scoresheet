@@ -9,5 +9,6 @@ urlpatterns = [
         path("game/create", views.GameCreateAPIView.as_view()),
         path("game-list", views.GameListAPIView.as_view()),
         path("game/<int:game_id>", views.GameDetailAPIView.as_view()),
+        path("game/<int:game_id>/delete", views.GameDeleteAPIView.as_view()),
 ]
 

@@ -8,17 +8,10 @@ class PlayerCreateUpdateSerializer(serializers.ModelSerializer):
         fields = ('player_name',)
 
 
-class PlayerListSerializer(serializers.ModelSerializer):
+class PlayerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Player
         fields = '__all__'
-
-
-class PlayerDetailSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Player
-        fields = '__all__'
-        
 
 
 class GameCreateUpdateSerializer(serializers.ModelSerializer):
@@ -27,16 +20,13 @@ class GameCreateUpdateSerializer(serializers.ModelSerializer):
         fields = ('player_id',)
 
 
-class GameListSerializer(serializers.ModelSerializer):
+class GameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Game
         fields = '__all__'
 
 
-class GameDetailSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Game
-        fields = '__all__'
+
 
 
 

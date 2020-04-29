@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, CreateAPIView
 from scoring_app.models import Player, Game, Frame
-from .serializers import PlayerCreateUpdateSerializer ,PlayerListSerializer, PlayerDetailSerializer, GameCreateUpdateSerializer, GameListSerializer, GameDetailSerializer
+from .serializers import PlayerCreateUpdateSerializer ,PlayerSerializer, GameCreateUpdateSerializer, GameSerializer
 from django.shortcuts import get_object_or_404
 
 
@@ -14,16 +14,16 @@ class PlayerCreateAPIView(CreateAPIView):
 
 class PlayerListAPIView(ListAPIView):
     queryset = Player.objects.all()
-    serializer_class = PlayerListSerializer
+    serializer_class = PlayerSerializer
 
 class PlayerDetailAPIView(RetrieveAPIView):
     queryset = Player.objects.all()
-    serializer_class = PlayerDetailSerializer
+    serializer_class = PlayerSerializer
     lookup_field = 'player_id'
 
 class PlayerDeleteAPIView(DestroyAPIView):
     queryset = Player.objects.all()
-    serializer_class = PlayerDetailSerializer
+    serializer_class = PlayerSerializer
     lookup_field = 'player_id'
 
 
@@ -38,10 +38,16 @@ class GameCreateAPIView(CreateAPIView):
 
 class GameListAPIView(ListAPIView):
     queryset = Game.objects.all()
-    serializer_class = GameListSerializer
+    serializer_class = GameSerializer
 
 
 class GameDetailAPIView(RetrieveAPIView):
     queryset = Game.objects.all()
-    serializer_class = GameDetailSerializer
+    serializer_class = GameSerializer
+    lookup_field = 'game_id'
+
+
+class GameDeleteAPIView(DestroyAPIView):
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
     lookup_field = 'game_id'
