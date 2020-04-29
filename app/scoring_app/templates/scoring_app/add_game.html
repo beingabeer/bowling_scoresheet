@@ -17,7 +17,7 @@
         <form class="form-inline" method="POST">
             {% csrf_token %}
             <!-- <input type="text" placeholder="Enter Player Name" name="player_name"> -->
-            {{ form.player_name }}
+            {{ form.player_id }}
             <button class="btn" type="submit">Submit</button>
         </form>
         Haven't Registered? <a href="{% url 'create-player' %}">Register Player</a>

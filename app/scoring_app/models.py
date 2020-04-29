@@ -15,13 +15,13 @@ class Player(models.Model):
 
 class Game(models.Model):
     game_id = models.AutoField(primary_key=True)
-    player_name = models.ForeignKey(Player, on_delete=models.CASCADE)
+    player_id = models.ForeignKey(Player, on_delete=models.CASCADE)
     in_progress = models.BooleanField(default=True)
     date_created = models.DateTimeField(default=timezone.now)
     game_score = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f"Game {self.game_id} - ({self.player_name})"
+        return f"Game {self.game_id} - ({self.player_id})"
 
     def get_absolute_url(self):
         return reverse("detail", kwargs={"pk": self.pk})

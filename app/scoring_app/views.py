@@ -94,7 +94,7 @@ def game_delete(request, pk):
 class GameCreateView(CreateView):
     model = Game
     template_name = "scoring_app/add_game.html"
-    fields = ("player_name",)
+    fields = ("player_id",)
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
