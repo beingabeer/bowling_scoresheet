@@ -8,6 +8,11 @@ A 10 pin bowling game built using Python/Django with a Rest API support
 [bowling7.herokuapp.com](https://bowling7.herokuapp.com/)
 
 
+## API (WIP)
+
+[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/)
+
+
 ## Running application locally with Docker
 
 Clone and add the following to a '.env.dev' file in the root directory:
@@ -38,10 +43,6 @@ docker-compose exec web python manage.py createsuperuser
 Simply register a player name, create a game and click on the "Play" button. After which the player is directed to the game detail screen. Select values for the rolls and click on the roll button to simulate a throw.
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/game-detail.png)
-
-## API (WIP)
-
-[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/)
 
 
 ## Game Scoring rules summary
