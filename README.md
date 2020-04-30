@@ -42,7 +42,7 @@ Simply register a player name, create a game and click on the "Play" button. Aft
 ## API (WIP)
 
 ```
-[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/)
+[bowling7.herokuapp.com/swagger-docs](https://bowling7.herokuapp.com/swagger-docs/)
 ```
 
 
