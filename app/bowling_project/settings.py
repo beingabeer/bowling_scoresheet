@@ -97,3 +97,9 @@ if not DEBUG:
             "rest_framework.renderers.JSONRenderer",
         )
     }
+
+
+
+SWAGGER_SETTINGS = {
+    "USE_SESSION_AUTH": False
+}
