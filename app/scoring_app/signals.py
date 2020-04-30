@@ -1,6 +1,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import Game, Frame
+
+from .models import Frame, Game
 
 
 @receiver(post_save, sender=Game)
