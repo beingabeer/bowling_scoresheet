@@ -90,7 +90,6 @@ class Frame(models.Model):
             return True
         return False
 
-    # recheck case logic for frame 9 and frame 10
     @property
     def frame_score(self):
         if self.roll_one + self.roll_two < 10:
