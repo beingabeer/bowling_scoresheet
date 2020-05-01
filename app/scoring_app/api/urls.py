@@ -13,5 +13,5 @@ urlpatterns = [
     # path("game/<int:game_id>/", views.GameDetailAPIView.as_view()),
     path("game/<int:game_id>/", views.GameDetail.as_view()),
     path("game/<int:game_id>/delete/", views.GameDeleteAPIView.as_view()),
-     path("game/<int:game_id>/roll/", views.RollCreateAPIView.as_view()),
+    path("game/<int:game_id>/roll/", views.RollCreateAPIView.as_view()),
 ]

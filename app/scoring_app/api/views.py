@@ -82,7 +82,7 @@ class GameDetail(APIView):
         try:
             return Game.objects.get(game_id=game_id)
         except Game.DoesNotExist:
-             raise Http404
+            raise Http404
 
     def get(self, request, game_id, format=None):
         game = self.get_object(game_id)
@@ -109,7 +109,7 @@ class RollCreateAPIView(CreateAPIView):
             raise Http404
 
         if current_frame.extra_frame_is_active:
-            roll_three = validated_data['roll_three']
+            roll_three = validated_data["roll_three"]
             current_frame.roll_three = roll_three
             current_frame.frame_is_active = False
             current_frame.extra_frame_is_active = False
@@ -117,11 +117,14 @@ class RollCreateAPIView(CreateAPIView):
             game.in_progress = False
             game.final_score
             game.save()
-            return Response({"detail": "Game Over!, Thanks for playing"}, status=status.HTTP_201_CREATED)
+            return Response(
+                {"detail": "Game Over!, Thanks for playing"},
+                status=status.HTTP_201_CREATED,
+            )
 
         else:
-            roll_one = validated_data['roll_one']
-            roll_two = validated_data['roll_two']
+            roll_one = validated_data["roll_one"]
+            roll_two = validated_data["roll_two"]
             current_frame = Frame.objects.get(game_id=game, frame_is_active=True)
 
             if current_frame.frame_no == 10:
@@ -141,13 +144,24 @@ class RollCreateAPIView(CreateAPIView):
                     game.in_progress = False
                     game.final_score
                     game.save()
-                    return Response({"detail": "Game Over!, Thanks for playing"}, status=status.HTTP_201_CREATED)
+                    return Response(
+                        {"detail": "Game Over!, Thanks for playing"},
+                        status=status.HTTP_201_CREATED,
+                    )
 
             elif roll_one == 10 and roll_two > 0:
-                return Response({"detail": "Roll one is a strike! Roll 2 cannot be greater than zero"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    {
+                        "detail": "Roll one is a strike! Roll 2 cannot be greater than zero"
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
 
             elif roll_one + roll_two > 10:
-                return Response({"detail": "Cannot knock more than 10 pins in one frame!"}, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    {"detail": "Cannot knock more than 10 pins in one frame!"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
 
             else:
                 current_frame.roll_one = roll_one
@@ -169,15 +183,15 @@ class RollCreateAPIView(CreateAPIView):
                     game.in_progress = False
                     game.final_score
                     game.save()
-                    return Response({"detail": "Game Over!, Thanks for playing"}, status=status.HTTP_201_CREATED)
+                    return Response(
+                        {"detail": "Game Over!, Thanks for playing"},
+                        status=status.HTTP_201_CREATED,
+                    )
 
         return Response(status=status.HTTP_201_CREATED)
+
 
 class GameDeleteAPIView(DestroyAPIView):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
     lookup_field = "game_id"
-
-
-
-

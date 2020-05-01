@@ -32,7 +32,7 @@ class GameDetailSerializer(serializers.ModelSerializer):
     cumulative_score = serializers.IntegerField(read_only=True)
 
     def get_frames(self, game):
-            return FrameSerializer(game.frame_set.all(), many=True).data
+        return FrameSerializer(game.frame_set.all(), many=True).data
 
     class Meta:
         model = Game
@@ -42,8 +42,14 @@ class GameDetailSerializer(serializers.ModelSerializer):
 class FrameSerializer(serializers.ModelSerializer):
     class Meta:
         model = Frame
-        fields = ("frame_no", "roll_one", "roll_two", "roll_three", "frame_is_active", "extra_frame_is_active")
-
+        fields = (
+            "frame_no",
+            "roll_one",
+            "roll_two",
+            "roll_three",
+            "frame_is_active",
+            "extra_frame_is_active",
+        )
 
 
 class RollSerializer(serializers.Serializer):
