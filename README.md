@@ -1,4 +1,4 @@
-## 10 Pin Bowling Game  (WIP)
+## 10 Pin Bowling Game 
 A 10 pin bowling game built using Python/Django with a Rest API support
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/bowling.png)
@@ -6,11 +6,6 @@ A 10 pin bowling game built using Python/Django with a Rest API support
 ## Demo Link
 
 [bowling7.herokuapp.com](https://bowling7.herokuapp.com/)
-
-
-## API 
-
-[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/) (WIP)
 
 
 ## Running application locally with Docker
@@ -44,7 +39,83 @@ Simply register a player name, create a game and click on the "Play" button. Aft
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/game-detail.png)
 
+## API 
 
+[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/)
+
+To start, make a `POST` request to `/player/create/` providing a player name
+
+```
+{
+  "player_name": "Bob"
+}
+```
+To create a game send a `POST` request to `/game/create/` passing in the player id. This will create a game with 10 frames attached to the game id.
+
+To get game details and score updates send a `GET` request to `/game/{game_id}/`. 
+
+For example - 
+```
+curl -X GET "https://bowling7.herokuapp.com/api/v1/game/9/" -H  "accept: application/json"
+```
+
+```
+{
+  "game_id": 9,
+  "cumulative_score": 0,
+  "in_progress": true,
+  "game_score": 0,
+  "player_id": 25,
+  "frames": [
+    {
+      "frame_no": 1,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": true,
+    },
+    {
+      "frame_no": 2,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": false,
+    },
+    ..................
+    {
+      "frame_no": 9,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": false,
+    },
+    {
+      "frame_no": 10,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": false,
+    }
+  ],
+}
+
+```
+
+To simulate a Roll, send a `POST` request to `/game/{game_id}/roll/` passing in the `game id` and the roll data, where `roll_one` and `roll_two` values signify the number of pins knocked down for each individual frame. `roll_three` value is for the extra third throw that a player gets in frame 10 if there is a strike. By default, all roll values are 0. 
+
+For example - 
+```
+curl -X POST "https://bowling7.herokuapp.com/api/v1/game/10/roll/" -H "Content-Type: application/json" -d '{  "roll_one": 0,  "roll_two": 0,  "roll_three": 0}'
+```
+
+If the roll is valid, it will be recorded and it may be immediately retrieved. 
+A player may continue to roll until the game is over after the end of the 10th frame.
+Any future attempts to make rolls will result in `400` response:
+```
+{
+    "detail": "Game Over"
+}
+```
 ## Game Scoring rules summary
 
 Each game, includes ten frames for the bowler.
