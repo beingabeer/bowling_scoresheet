@@ -52,6 +52,11 @@ To start, make a `POST` request to `/player/create/` providing a player name
 ```
 To create a game send a `POST` request to `/game/create/` passing in the player id. This will create a game with 10 frames attached to the game id.
 
+For example -
+```
+curl -X POST "https://bowling7.herokuapp.com/api/v1/game/create/" -H  "Content-Type: application/json" -d '{  "player_id": 7}'
+```
+
 To get game details and score updates send a `GET` request to `/game/{game_id}/`. 
 
 For example - 
