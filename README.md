@@ -8,11 +8,6 @@ A 10 pin bowling game built using Python/Django with a Rest API support
 [bowling7.herokuapp.com](https://bowling7.herokuapp.com/)
 
 
-## API 
-
-[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/)
-
-
 ## Running application locally with Docker
 
 Clone and add the following to a '.env.dev' file in the root directory:
@@ -44,6 +39,62 @@ Simply register a player name, create a game and click on the "Play" button. Aft
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/game-detail.png)
 
+## API 
+
+[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/)
+
+To start, make a `POST` request to `/player/create/` providing a player name
+
+```
+{
+  "player_name": "string"
+}
+```
+To create a game send a `POST` request to `/game/create/` passing in the player id. This will create a game with 10 frames attached to the game id.
+
+To get game details and score updates send a `GET` request to `/game/{game_id}/`. For example - curl -X GET "https://bowling7.herokuapp.com/api/v1/game/9/" -H  "accept: application/json"
+
+```
+{
+  "game_id": 9,
+  "cumulative_score": 0,
+  "in_progress": true,
+  "game_score": 0,
+  "player_id": 25,
+  "frames": [
+    {
+      "frame_no": 1,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": true,
+    },
+    {
+      "frame_no": 2,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": false,
+    },
+    ..................
+    {
+      "frame_no": 9,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": false,
+    },
+    {
+      "frame_no": 10,
+      "roll_one": 0,
+      "roll_two": 0,
+      "roll_three": 0,
+      "frame_is_active": false,
+    }
+  ],
+}
+
+```
 
 ## Game Scoring rules summary
 
