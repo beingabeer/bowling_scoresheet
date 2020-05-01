@@ -31,7 +31,7 @@ class Game(models.Model):
         frame_list = Frame.objects.filter(game_id=self)
         score = 0
         for frame in frame_list:
-            score += frame.frame_score
+            score = score + frame.frame_score
         return score
 
     @property
@@ -70,7 +70,7 @@ class Frame(models.Model):
         return f"{self.game_id} Frame-{self.frame_no}"
 
     @property
-    def input_roles_are_valid(self):
+    def clean(self):
         if self.roll_one + self.roll_two > 10:
             return False
         elif self.roll_one == 10 and self.roll_two > 0:

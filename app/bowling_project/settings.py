@@ -4,8 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# DEBUG = int(os.environ.get("DEBUG", default=0))
-DEBUG = False
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
@@ -100,6 +99,6 @@ if not DEBUG:
 
 
 
-SWAGGER_SETTINGS = {
-    "USE_SESSION_AUTH": False
-}
+# SWAGGER_SETTINGS = {
+#     "USE_SESSION_AUTH": False
+# }
