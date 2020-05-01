@@ -96,14 +96,11 @@ To get game details and score updates send a `GET` request to `/game/{game_id}/`
 
 ```
 
-To simulate a Roll, send a `POST` request to `/game/{game_id}/roll/` with the roll data, where roll_one and roll_two values signify the number of pins knocked down for each individual frame. roll_three value is for the extra third throw that a player gets in frame 10 if there is a strike. By default, all roll values are 0. 
+To simulate a Roll, send a `POST` request to `/game/{game_id}/roll/` passing in the `game id` and the roll data, where `roll_one` and `roll_two` values signify the number of pins knocked down for each individual frame. `roll_three` value is for the extra third throw that a player gets in frame 10 if there is a strike. By default, all roll values are 0. 
 
+For example - 
 ```
-{
-  "roll_one": 0,
-  "roll_two": 0,
-  "roll_three": 0
-}
+curl -X POST "https://bowling7.herokuapp.com/api/v1/game/10/roll/" -H "Content-Type: application/json" -d '{  "roll_one": 0,  "roll_two": 0,  "roll_three": 0}'
 ```
 
 ## Game Scoring rules summary
