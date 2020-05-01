@@ -115,7 +115,7 @@ Any future attempts to make rolls will result in `400` response:
 {
     "detail": "Game Over"
 }
-
+```
 ## Game Scoring rules summary
 
 Each game, includes ten frames for the bowler.
