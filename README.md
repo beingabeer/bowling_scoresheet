@@ -108,6 +108,14 @@ For example -
 curl -X POST "https://bowling7.herokuapp.com/api/v1/game/10/roll/" -H "Content-Type: application/json" -d '{  "roll_one": 0,  "roll_two": 0,  "roll_three": 0}'
 ```
 
+If the roll is valid, it will be recorded and it may be immediately retrieved. 
+A player may continue to roll until the game is over after the end of the 10th frame.
+Any future attempts to make rolls will result in `400` response:
+```
+{
+    "detail": "Game Over"
+}
+
 ## Game Scoring rules summary
 
 Each game, includes ten frames for the bowler.
