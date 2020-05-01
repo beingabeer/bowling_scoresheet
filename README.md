@@ -1,4 +1,4 @@
-## 10 Pin Bowling Game  (WIP)
+## 10 Pin Bowling Game 
 A 10 pin bowling game built using Python/Django with a Rest API support
 
 ![](https://github.com/beingabeer/bowling_scoresheet/blob/master/app/screens/bowling.png)
@@ -10,7 +10,7 @@ A 10 pin bowling game built using Python/Django with a Rest API support
 
 ## API 
 
-[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/) (WIP)
+[Documentation on Swagger](https://bowling7.herokuapp.com/swagger-docs/)
 
 
 ## Running application locally with Docker
