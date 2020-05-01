@@ -103,6 +103,12 @@ class RollCreateAPIView(CreateAPIView):
         except Game.DoesNotExist:
             raise Http404
 
+        if not game.in_progress:
+            return Response(
+                {"detail": "This game is over"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         try:
             current_frame = Frame.objects.get(game_id=game, frame_is_active=True)
         except Frame.DoesNotExist:
