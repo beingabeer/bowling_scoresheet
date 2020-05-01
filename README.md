@@ -47,7 +47,7 @@ To start, make a `POST` request to `/player/create/` providing a player name
 
 ```
 {
-  "player_name": "string"
+  "player_name": "Bob"
 }
 ```
 To create a game send a `POST` request to `/game/create/` passing in the player id. This will create a game with 10 frames attached to the game id.
