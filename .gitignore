@@ -8,6 +8,7 @@ __pycache__/
 .vscode
 *.sqlite3
 DB_cheatsheet.py
+staticfiles
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
