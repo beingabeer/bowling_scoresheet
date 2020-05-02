@@ -105,8 +105,7 @@ class RollCreateAPIView(CreateAPIView):
 
         if not game.in_progress:
             return Response(
-                {"detail": "This game is over"},
-                status=status.HTTP_400_BAD_REQUEST,
+                {"detail": "This game is over"}, status=status.HTTP_400_BAD_REQUEST,
             )
 
         try:
@@ -115,18 +114,28 @@ class RollCreateAPIView(CreateAPIView):
             raise Http404
 
         if current_frame.extra_frame_is_active:
-            roll_three = validated_data["roll_three"]
-            current_frame.roll_three = roll_three
-            current_frame.frame_is_active = False
-            current_frame.extra_frame_is_active = False
-            current_frame.save()
-            game.in_progress = False
-            game.final_score
-            game.save()
-            return Response(
-                {"detail": "Game Over!, Thanks for playing"},
-                status=status.HTTP_201_CREATED,
-            )
+            roll_one = validated_data["roll_one"]
+            roll_two = validated_data["roll_two"]
+            if roll_one or roll_two > 0:
+                return Response(
+                    {
+                        "detail": "This is the bonus throw on frame 10, enter pins knocked value in roll_three, keeping roll_one and roll_two 0"
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            else:
+                roll_three = validated_data["roll_three"]
+                current_frame.roll_three = roll_three
+                current_frame.frame_is_active = False
+                current_frame.extra_frame_is_active = False
+                current_frame.save()
+                game.in_progress = False
+                game.final_score
+                game.save()
+                return Response(
+                    {"detail": "Game Over!, Thanks for playing"},
+                    status=status.HTTP_201_CREATED,
+                )
 
         else:
             roll_one = validated_data["roll_one"]
