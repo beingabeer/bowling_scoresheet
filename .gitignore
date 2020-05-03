@@ -9,6 +9,7 @@ __pycache__/
 *.sqlite3
 DB_cheatsheet.py
 staticfiles
+htmlcov
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
