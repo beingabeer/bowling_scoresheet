@@ -19,12 +19,17 @@ Jinja2==2.11.2
 lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
+more-itertools==8.2.0
 packaging==20.3
 pathlib2==2.3.5
 pathspec==0.8.0
+pluggy==0.13.1
+py==1.8.1
 pycodestyle==2.5.0
 pylint==2.4.4
 pyparsing==2.4.7
+pytest==5.4.1
+pytest-django==3.9.0
 pytz==2019.3
 requests==2.23.0
 ruamel.yaml==0.16.10
@@ -34,5 +39,6 @@ sqlparse==0.3.1
 toml==0.10.0
 uritemplate==3.0.1
 urllib3==1.25.9
+wcwidth==0.1.9
 whitenoise==5.0.1
 wrapt==1.11.2
