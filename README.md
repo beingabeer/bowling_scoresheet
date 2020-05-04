@@ -33,6 +33,11 @@ docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 ```
 
+to run tests:
+```
+docker-compose exec web pytest -n auto
+```
+
 ## How does it work?
 
 Simply register a player name, create a game and click on the "Play" button. After which the player is directed to the game detail screen. Select values for the rolls and click on the roll button to simulate a throw.
