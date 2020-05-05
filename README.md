@@ -1,9 +1,7 @@
 ## 10 Pin Bowling Game 
 A 10 pin bowling game built using Python/Django with a Rest API support
 
-<p align="center">
-  <img src="https://github.com/beingabeer/bowling_scoresheet/blob/master/screens/bowling.gif"/>
-</p>
+![](https://github.com/beingabeer/bowling_scoresheet/blob/master/screens/bowll.gif)
 
 ## Demo Link
 
