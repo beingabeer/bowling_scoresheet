@@ -8,9 +8,6 @@ A 10 pin bowling game built using Python/Django with a Rest API support
 <button name="button">https://bowling7.herokuapp.com/</button>
 
 
-[![Live Application](https://bowling7.herokuapp.com/)](./instructions/1-voice-user-interface.md)
-
-
 ## Running application locally with Docker
 
 Clone and add the following to a '.env.dev' file in the root directory:
